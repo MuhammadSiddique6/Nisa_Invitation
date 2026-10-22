@@ -2,7 +2,7 @@
   width: 100%;
   max-width: 860px;
   margin: 0 auto;
-  padding: 28px 16px 12px;
+  padding: clamp(20px, 4vw, 32px) clamp(10px, 3vw, 24px) 12px;
   text-align: center;
 }
 
@@ -148,7 +148,7 @@
   background: linear-gradient(135deg, #fffbf5 0%, #fff8f0 100%);
   border: 2px solid #d4af37;
   border-radius: 16px;
-  padding: 40px 30px;
+  padding: clamp(24px, 6vw, 40px) clamp(16px, 5vw, 30px);
 }
 
 .celebration-message h2 {
@@ -172,6 +172,35 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+@media (min-width: 960px) {
+  .countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(8px, 1.4vw, 16px);
+  }
+
+  .countdown-grid > .time-separator {
+    display: none;
+  }
+
+  .flip-unit,
+  .seconds-wrap {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .flip-card {
+    width: 100%;
+    height: clamp(82px, 10vw, 118px);
+  }
+
+  .seconds-ring {
+    width: calc(100% + 14px);
+    height: calc(100% + 14px);
+    top: -12px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -200,6 +229,27 @@
 
   .seconds-ring {
     display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .countdown-container {
+    padding-right: 4px;
+    padding-left: 4px;
+  }
+
+  .countdown-grid {
+    gap: 14px 8px;
+  }
+
+  .flip-card {
+    height: 78px;
+    border-radius: 12px;
+  }
+
+  .flip-label {
+    font-size: 0.68rem;
+    letter-spacing: 1px;
   }
 }
 
