@@ -1,0 +1,212 @@
+.countdown-container {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 16px 12px;
+  text-align: center;
+}
+
+.countdown-kicker {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #8b0000;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.countdown-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.5rem, 4vw, 2.15rem);
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #8b7355;
+  margin-bottom: 8px;
+}
+
+.countdown-date {
+  color: #a08968;
+  letter-spacing: 1px;
+  margin-bottom: 28px;
+}
+
+.countdown-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(6px, 1.6vw, 16px);
+  flex-wrap: wrap;
+}
+
+.flip-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: 88px;
+}
+
+.flip-card {
+  position: relative;
+  width: clamp(76px, 18vw, 110px);
+  height: clamp(84px, 20vw, 118px);
+  background:
+    linear-gradient(180deg, #fffdf8 0%, #fff6e8 48%, #f3e6c8 52%, #fff8ee 100%);
+  border: 2px solid #d4af37;
+  border-radius: 16px;
+  box-shadow:
+    0 10px 24px rgba(139, 115, 85, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 400px;
+}
+
+.flip-card::after {
+  content: '';
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 50%;
+  height: 1px;
+  background: rgba(139, 115, 85, 0.18);
+}
+
+.flip-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45), transparent 42%);
+  pointer-events: none;
+}
+
+.flip-value {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 6vw, 3.1rem);
+  font-weight: 600;
+  color: #b0891a;
+  line-height: 1;
+  display: block;
+}
+
+.flip-label {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(0.72rem, 2vw, 0.9rem);
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #8b7355;
+  text-transform: uppercase;
+}
+
+.time-separator {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  color: #d4af37;
+  margin-bottom: 28px;
+  animation: colonPulse 1s ease-in-out infinite;
+}
+
+@keyframes colonPulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+.seconds-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 88px;
+}
+
+.seconds-ring {
+  position: absolute;
+  width: calc(100% + 22px);
+  height: calc(100% + 22px);
+  transform: rotate(-90deg);
+  pointer-events: none;
+  top: -18px;
+}
+
+.ring-track {
+  fill: none;
+  stroke: rgba(212, 175, 55, 0.18);
+  stroke-width: 4;
+}
+
+.ring-progress {
+  fill: none;
+  stroke: #d4af37;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 339.3;
+  transition: stroke-dashoffset 0.9s linear;
+}
+
+.celebration-message {
+  background: linear-gradient(135deg, #fffbf5 0%, #fff8f0 100%);
+  border: 2px solid #d4af37;
+  border-radius: 16px;
+  padding: 40px 30px;
+}
+
+.celebration-message h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.6rem, 5vw, 2.3rem);
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+.celebration-message p {
+  color: #8b7355;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 640px) {
+  .time-separator {
+    display: none;
+  }
+
+  .countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 12px;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  .flip-unit,
+  .seconds-wrap {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .flip-card {
+    width: 100%;
+    max-width: none;
+  }
+
+  .seconds-ring {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .time-separator,
+  .ring-progress {
+    animation: none;
+    transition: none;
+  }
+}
