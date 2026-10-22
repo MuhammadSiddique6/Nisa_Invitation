@@ -1,193 +1,135 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { CalendarDays, Clock3, MapPin } from 'lucide-react';
 import './InvitationCard.css';
 
-const InvitationCard = () => {
-  const [isHovered, setIsHovered] = useState(false);
+const InvitationCard = () => (
+  <motion.article
+    className="invitation-card"
+    initial={{ opacity: 0, y: 24, scale: 0.96 }}
+    animate={{ opacity: 1, y: 0, scale: 1 }}
+    transition={{ duration: 0.8, ease: 'easeOut' }}
+    whileHover={{ y: -7, rotate: 0.35 }}
+  >
+    <div className="card-border">
+      <div className="card-inner">
+        <div className="card-grain" aria-hidden="true" />
+        <div className="card-orbit card-orbit-one" aria-hidden="true" />
+        <div className="card-orbit card-orbit-two" aria-hidden="true" />
 
-  return (
-    <motion.div 
-      className="invitation-card"
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.8 }}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
-      whileHover={{ y: -5 }}
-    >
-      <div className="card-border">
-        <div className="card-inner">
-          <div className="card-decoration-top"></div>
-          
-          <div className="paisley-pattern"></div>
-          <div className="geometric-pattern"></div>
-          
-          <motion.div
-            className="card-content"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          >
-            <motion.div
-              className="ornament-top"
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              <div className="ornament-left"></div>
-              <div className="ornament-center"></div>
-              <div className="ornament-right"></div>
-            </motion.div>
+        <motion.header
+          className="card-header"
+          initial={{ opacity: 0, y: -12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.25 }}
+        >
+          <span className="card-eyebrow">
+            <span className="eyebrow-star" aria-hidden="true">✦</span>
+                      بسم الله الرحمن الرحيم
+<br></br>
+            A celebration of love
+            <span className="eyebrow-star" aria-hidden="true">✦</span>
+          </span>
+          <p className="celebrate-text">With the blessings of Almighty Allah</p>
+          <p className="celebrate-subtext">Request the pleasure of your company at the</p>
+        </motion.header>
 
-            <motion.p
-              className="save-the-date"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-            >
-              ✦ SAVE THE DATE ✦
-            </motion.p>
+        <motion.div
+          className="names-section"
+          initial={{ opacity: 0, scale: 0.94 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.45 }}
+        >
+          <div className="name-rule" aria-hidden="true">
+            <span />
+            <span className="rule-diamond" />
+            <span />
+          </div>
+          <h1 className="couple-names">
+            <span className="groom-name">Daniyal Arshad</span>
+            <span className="ampersand" aria-label="and">&</span>
+            <span className="bride-name">Nisa Farhan</span>
+          </h1>
+          <div className="name-rule name-rule-bottom" aria-hidden="true">
+            <span />
+            <span className="rule-diamond" />
+            <span />
+          </div>
+        </motion.div>
 
-            <motion.p
-              className="celebrate-text"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.9 }}
-            >
-              ~ With the blessings of Almighty Allah ~
-            </motion.p>
+        <motion.div
+          className="family-section"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.65 }}
+        >
+          <p className="family-intro">Grand daughter of</p>
+          <p className="family-names">Mr. &amp; Mrs. Ehsan Khan</p>
+        </motion.div>
 
-            <motion.p
-              className="celebrate-subtext"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 1.0 }}
-            >
-              Request the pleasure of your company at the
-            </motion.p>
-
-            <motion.div
-              className="names-section"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 1.1 }}
-            >
-              <motion.div 
-                className="name-wrapper groom-wrapper"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="name-ornament"></div>
-                <h1 className="groom-name">Daniyal Arshad</h1>
-                <div className="name-ornament"></div>
-              </motion.div>
-              
-              <div className="ampersand-container">
-                <div className="ampersand-line"></div>
-                <div className="ampersand">&</div>
-                <div className="ampersand-line"></div>
+        <motion.div
+          className="event-panel"
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.8 }}
+        >
+          <div className="event-heading">
+            <span className="event-spark" aria-hidden="true">✦</span>
+            Engagement ceremony
+            <span className="event-spark" aria-hidden="true">✦</span>
+          </div>
+          <div className="event-details">
+            <div className="event-detail">
+              <span className="detail-icon"><CalendarDays size={18} strokeWidth={1.7} /></span>
+              <div>
+                <span className="detail-label">Sunday</span>
+                <time className="detail-value" dateTime="2026-11-01">1 November 2026</time>
               </div>
-              
-              <motion.div 
-                className="name-wrapper bride-wrapper"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="name-ornament"></div>
-                <h1 className="bride-name">Nisa Farhan</h1>
-                <div className="name-ornament"></div>
-              </motion.div>
-            </motion.div>
-
-            <motion.div
-              className="family-section"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 1.3 }}
-            >
-              <p className="family-intro">Grand daughter of</p>
-              <p className="family-names">Mr. & Mrs. Ehsan Khan</p>
-            </motion.div>
-
-            <motion.div
-              className="divider-ornament"
-              initial={{ opacity: 0, scaleX: 0 }}
-              animate={{ opacity: 1, scaleX: 1 }}
-              transition={{ duration: 0.8, delay: 1.4 }}
-            >
-              <div className="divider-flower"></div>
-              <div className="divider-line"></div>
-              <div className="divider-flower"></div>
-            </motion.div>
-
-            <motion.div
-              className="date-time-section"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              whileHover={{ scale: 1.02, boxShadow: '0 8px 25px rgba(212, 175, 55, 0.3)' }}
-              transition={{ duration: 0.6, delay: 1.5 }}
-            >
-              <div className="date-wrapper">
-                <div className="date-icon">📅</div>
-                <p className="date">1 November 2026</p>
+            </div>
+            <span className="detail-divider" aria-hidden="true" />
+            <div className="event-detail">
+              <span className="detail-icon"><Clock3 size={18} strokeWidth={1.7} /></span>
+              <div>
+                <span className="detail-label">Evening reception</span>
+                <time className="detail-value" dateTime="19:00">7:00 PM – 10:00 PM</time>
               </div>
-              <div className="time-wrapper">
-                <div className="time-icon">🕐</div>
-                <p className="time">7:00 PM – 10:00 PM</p>
-              </div>
-            </motion.div>
+            </div>
+          </div>
+        </motion.div>
 
-            <motion.p
-              className="ceremony-type"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 1.7 }}
-            >
-              ❧ ENGAGEMENT CEREMONY ❧
-            </motion.p>
+        <motion.a
+          className="venue-section"
+          href="https://www.google.com/maps/search/?api=1&query=Noor+Jahan+Wedding+Hall"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open Noor Jahan Banquet Hall in Google Maps"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.7, delay: 1 }}
+        >
+          <div className="venue-icon" aria-hidden="true">
+            <MapPin size={19} strokeWidth={1.7} />
+          </div>
+          <div className="venue-copy">
+            <span className="venue-label">Celebration venue · View map</span>
+            <p className="venue-name">Noor Jahan Banquet Hall</p>
+          </div>
+          <div className="venue-map-art" aria-hidden="true">
+            <span className="map-route" />
+            <span className="map-dot map-dot-one" />
+            <span className="map-dot map-dot-two" />
+          </div>
+        </motion.a>
 
-            <motion.div
-              className="venue-section"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.6, delay: 1.9 }}
-            >
-              <div className="venue-icon">🕌</div>
-              <p className="venue-label">VENUE</p>
-              <p className="venue-name">Noor Jahan Wedding Hall</p>
-            </motion.div>
-
-            <motion.div
-              className="bismillah"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 2.0 }}
-            >
-              بسم الله الرحمن الرحيم
-            </motion.div>
-          </motion.div>
-
-          <div className="card-decoration-bottom"></div>
-          
-          <div className="mughal-arch-left"></div>
-          <div className="mughal-arch-right"></div>
-          <div className="floral-corner-top-left"></div>
-          <div className="floral-corner-top-right"></div>
-          <div className="floral-corner-bottom-left"></div>
-          <div className="floral-corner-bottom-right"></div>
-          
-          <div className="border-ornament-top"></div>
-          <div className="border-ornament-bottom"></div>
-          <div className="border-ornament-left"></div>
-          <div className="border-ornament-right"></div>
-          
-          {isHovered && <div className="card-glow"></div>}
-        </div>
+        <motion.div
+          className="bismillah"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.7, delay: 1.15 }}
+        >
+        </motion.div>
       </div>
-    </motion.div>
-  );
-};
+    </div>
+  </motion.article>
+);
 
 export default InvitationCard;
