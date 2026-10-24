@@ -32,7 +32,15 @@ const InvitationCard = () => (
           <p className="celebrate-text">With the blessings of Almighty Allah</p>
           <p className="celebrate-subtext">Request the pleasure of your company at the</p>
         </motion.header>
-
+<motion.div
+          className="family-section"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.65 }}
+        >
+          <p className="family-intro">Grand daughter of</p>
+          <p className="family-names">Mr. &amp; Mrs. Ehsan Khan</p>
+        </motion.div>
         <motion.div
           className="names-section"
           initial={{ opacity: 0, scale: 0.94 }}
@@ -56,15 +64,7 @@ const InvitationCard = () => (
           </div>
         </motion.div>
 
-        <motion.div
-          className="family-section"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.65 }}
-        >
-          <p className="family-intro">Grand daughter of</p>
-          <p className="family-names">Mr. &amp; Mrs. Ehsan Khan</p>
-        </motion.div>
+        
 
         <motion.div
           className="event-panel"
