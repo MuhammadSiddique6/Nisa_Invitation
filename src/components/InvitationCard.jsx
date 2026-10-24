@@ -45,9 +45,9 @@ const InvitationCard = () => (
             <span />
           </div>
           <h1 className="couple-names">
-            <span className="groom-name">Daniyal Arshad</span>
-            <span className="ampersand" aria-label="and">&</span>
             <span className="bride-name">Nisa Farhan</span>
+            <span className="ampersand" aria-label="and">&</span>
+            <span className="groom-name">Daniyal Arshad</span>
           </h1>
           <div className="name-rule name-rule-bottom" aria-hidden="true">
             <span />

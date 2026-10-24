@@ -49,7 +49,7 @@ const InvitationEnvelope = ({ isOpen, onOpen, children }) => {
               transition={{ duration: 0.5 }}
             >
               <div className="wax-seal-inner">
-                <span className="seal-text">D & N</span>
+                <span className="seal-text">N & D</span>
               </div>
               <div className="wax-seal-shine"></div>
               <div className="wax-seal-glow"></div>
